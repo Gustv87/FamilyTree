@@ -23,7 +23,21 @@ let person = [
     father: 'Abraham',
     mother: 'Mona',
   },
+
   {
+    img: 'src/img/Abraham.png',
+    name: 'Abraham',
+    father: '',
+    mother: '',
+  },
+  {
+    img: 'src/img/Mona.png',
+    name: 'Mona',
+    father: '',
+    mother: '',
+  },
+  {
+    img: 'src/img/Herb.png',
     name: 'Herb',
     father: 'Abraham',
     mother: 'Mona',
@@ -35,11 +49,25 @@ let person = [
     mother: 'Jackie',
   },
   {
+    img: 'src/img/Clancy.png',
+    name: 'Clancy',
+    father: '',
+    mother: '',
+  },
+  {
+    img: 'src/img/Jackie.png',
+    name: 'Jackie',
+    father: '',
+    mother: '',
+  },
+  {
+    img: 'src/img/Patty.png',
     name: 'Patty',
     father: 'Clancy',
     mother: 'Jackie',
   },
   {
+    img: 'src/img/Selma.png',
     name: 'Selma',
     father: 'Clancy',
     mother: 'Jackie',
@@ -50,33 +78,20 @@ let person = [
     father: '',
     mother: 'Selma',
   },
-  {
-    name: 'Nediana Flanders',
-    father: 'Nedsel Flanders',
-    mother: 'Agnes Turnipseed',
-  },
-  {
-    name: 'Ned Flanders',
-    father: 'Nedsel Flanders',
-    mother: 'Agnes Turnipseed',
-  },
-  {
-    name: 'Rodd',
-    father: 'Ned Flanders',
-    mother: 'Maude',
-  },
-  {
-    name: 'Todd',
-    father: 'Ned Flanders',
-    mother: 'Maude',
-  },
 ];
 
-function SearchPersona() {
-  const searchPerson = document.getElementById('inpSearch').value;
+let papa;
+let mama;
 
-  let papa;
-  let mama;
+function SearchPersona(pariente) {
+  let searchPerson;
+console.log(pariente);
+
+  if (pariente) {
+    searchPerson = pariente;
+  } else {
+    searchPerson = document.getElementById('inpSearch').value;
+  }
 
   for (let i = 0; i < person.length; i++) {
     const element = person[i];
@@ -95,24 +110,29 @@ function SearchPersona() {
       document.getElementById('pFather').innerHTML = element.name;
       document.getElementById('imgFather').src = element.img;
     }
-    if (element.name === mama) {
-      console.log(element.name);
 
+    if (element.name === mama) {
+      
       document.getElementById('pMother').innerHTML = element.name;
       document.getElementById('imgMother').src = element.img;
     }
   }
-  document.getElementById('imgMother').addEventListener('click', function () {
-    console.log(mama);
-    for (let i = 0; i < person.length; i++) {
-      const element = person[i];
-
-      if (element.name === mama) {
-        document.getElementById('imgPrincipal').innerHTML = element.name;
-        document.getElementById('imgPrincipal').src = element.img;
-        document.getElementById('pPrincipal').innerHTML = element.name;
-      }
-    }
-  });
+  if(mama === ""){
+    document.getElementById('pMother').innerHTML = 'Mamá no encontrada';
+    document.getElementById('imgMother').src = '';
+    
+  }
+  if(papa === ""){
+    document.getElementById('pFather').innerHTML = 'Padre no encontrado';
+    document.getElementById('imgFather').src = '';
+    
+  }
+  
 }
 
+document.getElementById('imgMother').addEventListener('click', function(){
+  SearchPersona(mama)
+} );
+document.getElementById('imgFather').addEventListener('click', function(){
+  SearchPersona(papa)
+} );
