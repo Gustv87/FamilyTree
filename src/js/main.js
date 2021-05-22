@@ -85,13 +85,13 @@ let mama;
 
 function SearchPersona(pariente) {
   let searchPerson;
-console.log(pariente);
 
   if (pariente) {
     searchPerson = pariente;
   } else {
     searchPerson = document.getElementById('inpSearch').value;
   }
+  
 
   for (let i = 0; i < person.length; i++) {
     const element = person[i];
@@ -112,27 +112,27 @@ console.log(pariente);
     }
 
     if (element.name === mama) {
-      
       document.getElementById('pMother').innerHTML = element.name;
       document.getElementById('imgMother').src = element.img;
     }
   }
-  if(mama === ""){
+  if (mama === '') {
     document.getElementById('pMother').innerHTML = 'Mamá no encontrada';
     document.getElementById('imgMother').src = '';
-    
   }
-  if(papa === ""){
+  if (papa === '') {
     document.getElementById('pFather').innerHTML = 'Padre no encontrado';
     document.getElementById('imgFather').src = '';
-    
   }
-  
 }
 
-document.getElementById('imgMother').addEventListener('click', function(){
-  SearchPersona(mama)
-} );
-document.getElementById('imgFather').addEventListener('click', function(){
-  SearchPersona(papa)
-} );
+document.getElementById('imgMother').addEventListener('click', function () {
+  SearchPersona(mama);
+});
+document.getElementById('imgFather').addEventListener('click', function () {
+  SearchPersona(papa);
+});
+
+
+
+
