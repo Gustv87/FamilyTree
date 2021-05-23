@@ -80,25 +80,24 @@ let person = [
   },
 ];
 
-let papa;
-let mama;
+let father;
+let mother;
 
-function SearchPersona(pariente) {
+function SearchPersona(relative) {
   let searchPerson;
 
-  if (pariente) {
-    searchPerson = pariente;
+  if (relative) {
+    searchPerson = relative;
   } else {
     searchPerson = document.getElementById('inpSearch').value;
   }
-  
 
   for (let i = 0; i < person.length; i++) {
     const element = person[i];
 
     if (element.name === searchPerson) {
-      papa = element.father;
-      mama = element.mother;
+      father = element.father;
+      mother = element.mother;
       document.getElementById('pPrincipal').innerHTML = element.name;
       document.getElementById('imgPrincipal').src = element.img;
     }
@@ -106,33 +105,29 @@ function SearchPersona(pariente) {
   for (let i = 0; i < person.length; i++) {
     const element = person[i];
 
-    if (element.name === papa) {
+    if (element.name === father) {
       document.getElementById('pFather').innerHTML = element.name;
       document.getElementById('imgFather').src = element.img;
     }
 
-    if (element.name === mama) {
+    if (element.name === mother) {
       document.getElementById('pMother').innerHTML = element.name;
       document.getElementById('imgMother').src = element.img;
     }
   }
-  if (mama === '') {
-    document.getElementById('pMother').innerHTML = 'Mamá no encontrada';
+  if (mother === '') {
+    document.getElementById('pMother').innerHTML ='Mom not found';
     document.getElementById('imgMother').src = '';
   }
-  if (papa === '') {
-    document.getElementById('pFather').innerHTML = 'Padre no encontrado';
+  if (father === '') {
+    document.getElementById('pFather').innerHTML = 'Father not found';
     document.getElementById('imgFather').src = '';
   }
 }
 
 document.getElementById('imgMother').addEventListener('click', function () {
-  SearchPersona(mama);
+  SearchPersona(mother);
 });
 document.getElementById('imgFather').addEventListener('click', function () {
-  SearchPersona(papa);
+  SearchPersona(father);
 });
-
-
-
-
