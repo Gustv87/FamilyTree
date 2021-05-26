@@ -75,7 +75,6 @@ body {
 .item2 {
   display: grid;
   grid-area: menu;
-  height: 200px;
   justify-content: end;
 }
 .imgFather {
@@ -117,4 +116,8 @@ body {
 }
 .imgMother > img {
   height: 150px;
+}
+
+.main {
+  display: none;
 }

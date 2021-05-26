@@ -116,7 +116,7 @@ function SearchPersona(relative) {
     }
   }
   if (mother === '') {
-    document.getElementById('pMother').innerHTML ='Mom not found';
+    document.getElementById('pMother').innerHTML = 'Mom not found';
     document.getElementById('imgMother').src = '';
   }
   if (father === '') {
@@ -131,3 +131,33 @@ document.getElementById('imgMother').addEventListener('click', function () {
 document.getElementById('imgFather').addEventListener('click', function () {
   SearchPersona(father);
 });
+
+const mostrar = document.querySelector('#btnSearch');
+const mensaje = document.querySelector('.main');
+const item1 = document.querySelector('.item1');
+const item2 = document.querySelector('.item2');
+const item3 = document.querySelector('.item3');
+
+mostrar.addEventListener('click', () => {
+  mensaje.classList.toggle('main');
+  mensaje.style.display = 'grid';
+  mensaje.style.marginTop = '50px';
+  mensaje.style.gridTemplateAreas = "'head head' 'menu main'";
+  mensaje.style.gridColumnGap = '10px';
+  mensaje.style.gridRowGap = '10px';
+
+  item1.style.display = 'grid';
+  item1.style.justifyContent = 'center';
+  item1.style.gridArea = 'head';
+
+  item3.style.display = 'grid';
+  item3.style.justifyContent = 'start';
+  item3.style.gridArea = 'main';
+
+  item2.style.display = 'grid';
+  item2.style.justifyContent = 'end';
+  item2.style.gridArea = 'menu';
+});
+
+
+
