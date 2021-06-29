@@ -1,4 +1,4 @@
-let humano = [
+let persona = [
   {
     img: 'src/img/Bart.png',
     name: 'Bart',
