@@ -1,4 +1,4 @@
-let person = [
+let humano = [
   {
     img: 'src/img/Bart.png',
     name: 'Bart',
@@ -158,6 +158,3 @@ mostrar.addEventListener('click', () => {
   item2.style.justifyContent = 'end';
   item2.style.gridArea = 'menu';
 });
-
-
-
